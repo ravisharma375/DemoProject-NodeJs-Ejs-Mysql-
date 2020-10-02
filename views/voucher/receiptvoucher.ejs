@@ -1,0 +1,49 @@
+
+<div class="row gutter-xs">
+    <div class="card">
+        <div class="card-header">
+            <a href="/Admin_AddReceiptVoucher" class="btn btn-primary">Add New Receipt Voucher</a>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-striped table-condensed" id="datatable-for-receiptvoucher">
+                <thead>
+                    <tr>
+                        <th>S. No</th>
+                        <th>Number</th>
+                        <th>Received From</th>
+                        <th>Receipt Date</th>
+                        <th>Receipt Method</th>
+                        <th>Account Number</th>
+                        <th>Amount(₹)</th>
+                        <th>Action</th>
+                    </tr>
+                    <tbody>
+                        <% count=0;
+                        receiptVoucher.forEach(data=>{
+                            count++;
+                        %>
+                        <tr>
+                            <td><%= (count<10)? '0'+count : count %></td>
+                            <td><%= data.id %></td>
+                            <td><%= data.ReceivedFrom %></td>
+                            <td><%= data.ReceiptDate %></td>
+                            <td><%= data.ReceiptMethod %></td>
+                            <td><%= data.BankAccountToBeDebited %></td>
+                            <td><%= data.Amount+"  ₹" %></td>
+                            <td><div class="btn-group">
+                                <% if(data.IsActive){ %>
+                                <p class="badge badge-success"><i class="icon icon-check"></i> Active</p>
+                                <% }else{ %>
+                                <p class="badge badge-danger"><i class="icon icon-times"></i> InActive</p>
+                                <% } %>
+                                </div></td>
+                        </tr>
+                        <%    }  )%>
+                    </tbody>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">$('#datatable-for-receiptvoucher').DataTable({});</script>
+<script type="text/javascript" src="custom/voucher.js"></script>

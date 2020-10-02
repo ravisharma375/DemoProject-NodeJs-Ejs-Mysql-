@@ -1,0 +1,226 @@
+<div class="row gutter-xs">
+  <div class="card">
+    <div class="card-header">
+      <label class="" ><h3>Add Payment Voucher</h3> </label>
+      <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#AddSubCategory">Add Category</button>
+    </div>
+    <div class="card-body">
+      <br />
+        <form  method="post" enctype="multipart/form-data" id="voucherForm" name="voucherForm">
+          <div id="error" class="text-danger text-capitalize"></div>
+          <div class=" form-group">
+            <label>Payment Date &#9733</label>
+            <div class="row">
+              <div class="col-md-1 form-group">
+                <input type="text" class="form-control" name="DD" id="paymentDateDD" maxlength="2" placeholder="DD" required>
+              </div>
+              
+              <div class="col-md-1 form-group">   
+                <input type="text" class="form-control" name="MM" id="paymentDateMM" maxlength="2" placeholder="MM" required>
+              </div>
+              <div class="col-md-1 form-group">
+                <input type="text" class="form-control" name="YYYY" id="paymentDateYYYY" maxlength="4" placeholder="YYYY" required>
+              </div> 
+            </div>
+           
+          </div>
+          <div class=" form-group ">
+            <label for="paidTo">Paid to </label>
+            <input type="text" class="form-control" name="paidTo" id="paidTo" placeholder="Enter Here" required>
+          </div>
+          <div class=" form-group ">
+            <label for="paymentAmount">Payment Amount &#9733</label>
+            <input type="text" class="form-control" name="paymentAmount" id="paymentAmount" placeholder="Enter Here" required>
+          </div>
+          <div class="form-group">
+            <label for="paymentMethod">Payment Method &#9733</label>
+            <select class="form-control" name="paymentMethod" id="paymentMethod">
+              <option value="Bank Transfer">Bank Transfer</option>
+              <option value="Cash">Cash</option>
+              <option value="Cheque">Cheque</option>
+         
+            </select>
+          </div>
+          <div class="form-group row">
+            
+            <div class="col-md-6 form-group">   
+              <label for="bankAccountToBeCr">Bank Account to be credited  &#9733</label>
+              <input list="bankAccountToBeCr" class="col-sm-6 custom-select custom-select-sm" name="bankAccountToBeCr" id="bankAccountToBeCredited">
+              
+              <datalist  id="bankAccountToBeCr">
+                <% bankAccount.forEach(data => { %>
+                  <option value="<%= data.AccountNumber%>">
+            <% }) %>
+
+              </datalist>
+            </div>
+            <div class="col-md-2 form-group">
+              <br>
+             
+              <a href="" class="btn btn-primary" data-toggle="modal" data-target="#CreateBankAccount">Create New</a>
+            </div> 
+
+          </div>
+          <section style="justify-content: center;flex-wrap: wrap;">
+            <header style="display: flex;">
+              <div class="col" style="flex: 1;">Account Head</div>
+              <div class="col" style="flex: 1;">Details</div>
+              <div class="col" style="flex: 1;">Debit</div>
+              <div class="col" style="flex: 1;">
+                Credit</div>
+            </header>
+            <div class="container1" id="container10101">
+              <div class="row" style="display: flex;">
+                <div class="col"  style="flex: 1;margin: 10px;">
+<div class="form-inline">
+                    <input list="bankAccountHead" class="col custom-select custom-select-sm  form-control" name="bankAccountHead" id="bankAccountHeadID">
+                    <datalist  id="bankAccountHead">
+                      <% accounthead.forEach(data => { %>
+                        <option value="<%= data.AccountName%>">
+                  <% }) %>
+                </datalist>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CreateBankHead">+</button>
+</div>
+                </div>
+                <div class="col"  style="flex: 1;margin: 10px;"><input type="text" name="Details" class="form-control" id="exampleFormControlInput1" placeholder="Enter Text"></div>
+                <div class="col"  style="flex: 1;margin: 10px;"><input type="text" name="Debit" class="form-control priceD" id="DebitTotal" placeholder="Enter Text"></div>
+                <div class="col"  style="flex: 1;margin: 10px;"><input type="text" name="Credit" class="form-control priceC" id="CreditID" placeholder="Enter Text"></div>
+                <button type="button" class="add_form_field btn btn-primary " style="border-radius: 8px;" id="addform">+</button>
+              </div>
+            </div>
+          
+           <br>
+            <footer>
+             <div id="totalCD" style="display: flex;">
+              <div class="col" style="flex: 1;">Total Debit/Credit</div>
+              <div class="col" style="flex: 1;"><span></span></div>
+              <div class="col" style="flex: 1;">₹<input type="text" name="debitTotal" class="debitTotal" style="border: none; background: transparent;" value="0.00" disabled ></div>
+              <div class="col" style="flex: 1;">
+                ₹<input type="text" name="creditTotal" class="creditTotal" style="border: none; background: transparent;" value="0.00" disabled ></div>
+             </div>
+             <hr data-content="AND" class="hr-text">
+             <div id="paidCD" style="display: flex;">
+              <div class="col" style="flex: 1;">Paid Amount</div>
+              <div class="col" style="flex: 1;"><span></span></div>
+              <div class="col" style="flex: 1;"><span id="">0.00</span> ₹</div>
+              <div class="col" style="flex: 1;">
+                <span id="drcr"></span>₹<input type="text" name="totalamount" class="totalamount" style="border: none; background: transparent;" value="0.00" disabled >
+             </div>
+            </footer>
+            <hr data-content="AND" class="hr-text">
+          </section>
+          <div class="form-group">
+            <label for="NarrationID">Narration </label>
+            <textarea name="Narration" id="NarrationID" class="form-control"></textarea>
+          </div>
+          <div class="form-group m-2">
+            <label class="control-label">Attachment</label>
+           <input type="file" name="image" id="categoryLogo" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Save" />
+          </div>
+        </form>
+  
+     
+    </div>
+    <div class="card-footer">
+      <a href="/Admin_Categories" class="btn btn-link">&laquo; Back to List</a>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="toast-container" class="toast-bottom-center">
+<div class="toast toast-success" aria-live="polite" style="display: block;">
+  <button class="toast-close-button" role="button">⨉</button>
+<div class="toast-message">hello</div>
+</div>
+</div> -->
+<script>
+  
+  $(document).ready(function() {
+    
+      var max_fields      = 5;
+      var wrapper         = $(".container1");
+      var add_button      = $(".add_form_field");
+      var html=`<div class="row" style="display: flex;">
+                <div class="col" name="mytext1[]" style="flex: 1;margin: 10px;">
+                  <div class="form-inline">
+                      <input list="bankAccountHead" class="col custom-select custom-select-sm  form-control" name="bankAccountHead" id="bankAccountHeadID">
+                      <datalist  id="bankAccountHead">
+                        <% accounthead.forEach(data => { %>
+                          <option value="<%= data.AccountName%>">
+                    <% }) %>
+                  </datalist>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CreateBankHead">+</button>
+  </div>
+                    </div>
+                <div class="col" name="Details" style="flex: 1;margin: 10px;"><input type="text" name="Details"  class="form-control " id="DetailsId" placeholder=""></div>
+                <div class="col" name="Debit" style="flex: 1;margin: 10px;"><input type="text"   name="Debit" class="form-control priceD" id="DebitId" placeholder=""></div>
+                <div class="col" name="Credit" style="flex: 1;margin: 10px;"><input type="text"  name="Credit"  class="form-control priceC" id="CreditId" placeholder=""></div>
+                <button type="button" class="delete btn btn-danger" id="addform" style="border-radius: 8px;">-</button>
+              </div>`
+      var x = 1;
+      $(add_button).click(function(e){
+          e.preventDefault();
+          if(x < max_fields){
+              x++;
+              $(wrapper).append(html); //add input box
+          }
+    else
+    {
+    alert('You Reached the limits')
+    }
+      });
+   
+      $(wrapper).on("click",".delete", function(e){
+          e.preventDefault(); $(this).parent('div').remove(); x--;
+      })
+  });
+
+  finalTotal=0;
+  $("#voucherForm").click(function() {
+        // Print entered value in a div box
+         
+        var dr=$(".debitTotal").val()
+        var cr=$(".creditTotal").val()
+        finalTotal=dr-cr
+        finalTotal > 0 ? $("#drcr").text("Dr."):$("#drcr").text("Cr.")
+        $(".totalamount").val(Math.abs(finalTotal))
+    });
+    $(document).on('change', ".priceD",function () {
+        DebitTotal()
+})
+$(document).on('change', ".priceC",function () {
+        CreditTotal()
+})
+      function DebitTotal() {
+  var total = 0;
+  
+  $('.priceD').each(function(_i, e) {
+    var val = parseFloat(e.value);
+    if (!isNaN(val))
+      total += val;
+  });
+  console.log(total)
+  $('.debitTotal').val(total)
+  
+}
+function CreditTotal() {
+  var total = 0;
+  
+  $('.priceC').each(function(_i, e) {
+    var val = parseFloat(e.value);
+    if (!isNaN(val))
+      total += val;
+  });
+  console.log(total)
+  $('.creditTotal').val(total)
+}
+
+  </script>
+  <script type="text/javascript" src="custom/voucher.js"></script>
+</div>
+</div>
+<%- include('../includes/_models.ejs') %>

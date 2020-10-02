@@ -1,0 +1,49 @@
+
+<div class="row gutter-xs">
+    <div class="card">
+        <div class="card-header">
+            <a href="/Admin_AddVoucher" class="btn btn-primary">Add New Voucher</a>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-striped table-condensed" id="datatable-for-voucher">
+                <thead>
+                    <tr>
+                        <th>S. No</th>
+                        <th>Number</th>
+                        <th>Paid To</th>
+                        <th>Payment Date</th>
+                        <th>Payment Method</th>
+                        <th>Account Number</th>
+                        <th>Amount(₹)</th>
+                        <th>Action</th>
+                    </tr>
+                    <tbody>
+                        <% count=0;
+                        payVoucher.forEach(data=>{
+                            count++;
+                        %>
+                        <tr>
+                            <td><%= (count<10)? '0'+count : count %></td>
+                            <td><%= data.id %></td>
+                            <td><%= data.PaidTo %></td>
+                            <td><%= data.PaymentDate %></td>
+                            <td><%= data.PaymentMethod %></td>
+                            <td><%= data.BankAccountToBeCredited %></td>
+                            <td><%= data.Amount+"  ₹" %></td>
+                            <td><div class="btn-group">
+                                <% if(data.IsActive){ %>
+                                <p class="badge badge-success"><i class="icon icon-check"></i> Active</p>
+                                <% }else{ %>
+                                <p class="badge badge-danger"><i class="icon icon-times"></i> InActive</p>
+                                <% } %>
+                              </div></td>
+                        </tr>
+                        <%    }  )%>
+                    </tbody>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">$('#datatable-for-voucher').DataTable({});</script>
+<script type="text/javascript" src="custom/voucher.js"></script>

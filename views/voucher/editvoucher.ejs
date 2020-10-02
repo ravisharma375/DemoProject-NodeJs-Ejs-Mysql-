@@ -1,0 +1,33 @@
+<div class="row gutter-xs">
+  <div class="card">
+    <div class="card-body">
+      <form action="" method="PUT" enctype="multipart/form-data" id="updateCategoryForm" name="updateCategoryForm">
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <label class="control-label">Category Name</label>
+            <input
+              type="text"
+              value="<%=category.categoryName%>"
+              name="categoryName"
+              id="categoryName"
+              class="form-control"
+            />
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="control-label">Category Image/Icon</label>
+
+            <input type="file" name="image" id="categoryLogo" class="form-control" />
+          </div>
+        </div>
+        <input type="hidden" value="<%=category.id%>" name="id" id="catId" />
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Update" />
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <a href="/Admin_Categories" class="btn btn-link">&laquo; Back to List</a>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="custom/categories.js"></script>

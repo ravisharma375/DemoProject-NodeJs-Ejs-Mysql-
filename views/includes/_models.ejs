@@ -1,0 +1,264 @@
+<div id="AddSubCategory" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog   modal-sm">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <div class="text-center">
+          <h4 class="modal-title">Add Sub Category</h4>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <h3 class="text-primary"></h3>
+          <form method="POST" id="AddSubCategory" name="addSubCategory" enctype="multipart/form-data">
+            <div class="form-group">
+              <label class="control-label">Sub Category Name</label>
+              <input class="form-control" type="text" id="subCategoryName" name="subCategoryName" />
+            </div>
+            <div class="form-group">
+              <label class="control-label">Under Category</label>
+
+              <select id="inputState" name="subCategoryId" class="form-control">
+                <% if (category.length=="0") { %>
+                <option> ----EMPTY----- </option>
+                <% } %> <% category.forEach(Category=>{ %>
+                <option value="<%=Category.id %>"><%=Category.categoryName %></option>
+                <% }) %>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Status</label>
+              <select id="statusId" name="status" class="form-control">
+                <option value="true">Active</option>
+                <option value="false">InActive</option>
+              </select>
+            </div>
+            <div class="m-t-lg">
+              <input class="btn btn-primary addSubCategory" type="submit" value="save" />
+              <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div id="CreateBankAccount" tabindex="-1" role="dialog" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <div class="text-center">
+          <h4 class="modal-title">Add Bank Account</h4>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <h3 class="text-primary"></h3>
+          <form method="POST" id="CreateBankAccount" name="CreateBankAccount" enctype="multipart/form-data">
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Bank Account Number *</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input class="form-control" type="text" name="BankAccountNumber" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Bank Name *</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input class="form-control" type="text" name="BankName" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Branch Name *</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input class="form-control" type="text" name="BranchName" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Type of Account *</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <select id="TypeOfAccount" name="TypeOfAccount" class="form-control">
+                  <option value="saving">Saving</option>
+                  <option value="current">Current</option>
+                  <option value="overdraft">Overdraft</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">IFSC Code *</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input class="form-control" type="text" name="IFSC_Code" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Opening Balance</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input class="form-control" type="text" name="OpeningBalance" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Date of Opening Balance</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input class="form-control" type="text" name="Date_of_Opening_Balance" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Default Bank Account</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <select id="Default_Bank_Account" name="Default_Bank_Account" class="form-control">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Type of Balance</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <select id="Type_of_Balance" name="Type_of_Balance" class="form-control">
+                  <option value="debit">Debit</option>
+                  <option value="credit">Credit</option>
+                </select>
+              </div>
+            </div>
+            <div class="m-t-lg">
+              <input class="btn btn-primary" type="submit" value="save" />
+              <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div id="CreateBankHead" tabindex="-1" role="dialog" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <div class="text-center">
+          <h4 class="modal-title">Add Account Head</h4>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <h3 class="text-primary"></h3>
+          <form action="" method="POST" id="CreateBankHead" name="CreateBankHead" nctype="multipart/form-data">
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Account Name *</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input class="form-control" type="text" name="AccountName" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Opening Balance (Amount)</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input class="form-control" type="text" name="OpeningBalance" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Opening Balance (Date)</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input class="form-control" type="text" name="Date_of_Opening_Balance" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Debit or Credit *</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <select id="DebitOrCredit" name="DebitOrCredit" class="form-control">
+                  <option value="debit">Debit</option>
+                  <option value="credit">Credit</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Category *</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <input
+                  list="categoryHead"
+                  class="col custom-select custom-select-sm  form-control"
+                  name="Category"
+                  id="categoryId"
+                />
+
+                <datalist id="categoryHead">
+                  <% subcategory.forEach(subCategory=>{ %>
+                  <option id="<%=subCategory.id %>"><%=subCategory.SubcategoryName %></option>
+                  <% }) %>
+                </datalist>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Use as default Account</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <select id="Default_Bank_Account" name="Default_Bank_Account" class="form-control">
+                  <option value="no">No</option>
+                  <option value="yes">Yes</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 form-group">
+                <label class="control-label">Account Status</label>
+              </div>
+              <div class="col-md-7 form-group">
+                <select id="statusId" name="AccountStatus" class="form-control">
+                  <option value="true">Active</option>
+                  <option value="false">InActive</option>
+                </select>
+              </div>
+            </div>
+            <div class="m-t-lg">
+              <input class="btn btn-primary" type="submit" value="save" />
+              <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+<!-- End -->

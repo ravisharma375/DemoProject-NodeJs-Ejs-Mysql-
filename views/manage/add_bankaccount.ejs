@@ -1,0 +1,100 @@
+<div class="row gutter-xs">
+  <div class="card">
+    <div class="card-body">
+      <div id="error" class="text-danger text-capitalize"></div>
+      <form method="POST" id="SeparateCreateBankAccount" name="SeparateCreateBankAccount" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Bank Account Number *</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input class="form-control" type="text" name="BankAccountNumber" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Bank Name *</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input class="form-control" type="text" name="BankName" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Branch Name *</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input class="form-control" type="text" name="BranchName" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Type of Account *</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <select id="TypeOfAccount" name="TypeOfAccount" class="form-control">
+              <option value="saving">Saving</option>
+              <option value="current">Current</option>
+              <option value="overdraft">Overdraft</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">IFSC Code *</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input class="form-control" type="text" name="IFSC_Code" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Opening Balance</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input class="form-control" type="text" name="OpeningBalance" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Date of Opening Balance</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input class="form-control" type="text" name="Date_of_Opening_Balance" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Default Bank Account</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <select id="Default_Bank_Account" name="Default_Bank_Account" class="form-control">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Type of Balance</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <select id="Type_of_Balance" name="Type_of_Balance" class="form-control">
+              <option value="debit">Debit</option>
+              <option value="credit">Credit</option>
+            </select>
+          </div>
+        </div>
+        <div class="m-t-lg">
+          <input class="btn btn-primary" type="submit" value="save" />
+          
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <a href="/Admin_BankAccount" class="btn btn-link">&laquo; Back to List</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="custom/manage.js"></script>

@@ -1,0 +1,93 @@
+<div class="row gutter-xs">
+  <div class="card">
+    <div class="card-body">
+      <div id="error" class="text-danger text-capitalize"></div>
+      <form action="" method="POST" id="SeparateCreateBankHead" name="SeparateCreateBankHead" nctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Account Name *</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input class="form-control" type="text" name="AccountName" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Opening Balance (Amount)</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input class="form-control" type="text" name="OpeningBalance" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Opening Balance (Date)</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input class="form-control" type="text" name="Date_of_Opening_Balance" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Debit or Credit *</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <select id="DebitOrCredit" name="DebitOrCredit" class="form-control">
+              <option value="debit">Debit</option>
+              <option value="credit">Credit</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Category *</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <input
+              list="categoryHead"
+              class="col custom-select custom-select-sm  form-control"
+              name="Category"
+              id="categoryId"
+            />
+
+            <datalist id="categoryHead">
+              <% subcategory.forEach(subCategory=>{ %>
+              <option id="<%=subCategory.id %>"><%=subCategory.SubcategoryName %></option>
+              <% }) %>
+            </datalist>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Use as default Account</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <select id="Default_Bank_Account" name="Default_Bank_Account" class="form-control">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 form-group">
+            <label class="control-label">Account Status</label>
+          </div>
+          <div class="col-md-7 form-group">
+            <select id="statusId" name="AccountStatus" class="form-control">
+              <option value="true">Active</option>
+              <option value="false">InActive</option>
+            </select>
+          </div>
+        </div>
+        <div class="m-t-lg">
+          <input class="btn btn-primary" type="submit" value="save" />
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <a href="/Admin_MyAccount" class="btn btn-link">&laquo; Back to List</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="custom/manage.js"></script>
